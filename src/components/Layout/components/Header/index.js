@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faMagnifyingGlass, faPlus, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import Tippy from '@tippyjs/react/headless';
 
+import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import styles from './Header.module.scss';
@@ -31,10 +32,10 @@ function Header() {
                         <div className={cx('search-result')} tabIndex="-1" {...attrs}>
                             <PopperWrapper>
                                 <h4 className={cx('search-title')}>Tài khoản</h4>
-                                <AccountItem /> 
-                                <AccountItem /> 
-                                <AccountItem /> 
-                                <AccountItem /> 
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
                             </PopperWrapper>
                         </div>
                     )}
@@ -51,7 +52,12 @@ function Header() {
                         </button>
                     </div>
                 </Tippy>
-                <div className={cx('actions')}></div>
+                <div className={cx('actions')}>
+                    <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+                        Tải lên
+                    </Button>
+                    <Button primary>Đăng nhập</Button>
+                </div>
             </div>
         </header>
     );
