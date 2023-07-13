@@ -11,6 +11,7 @@
 }
 
 .innner {
+    padding: 0 24px 0 16px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -104,4 +105,12 @@
     &:active{
         background-color: rgba(22, 24, 35, 0.06);
     }
+}
+
+.more-btn {
+    font-size: 2rem;
+    margin-left: 20px;
+    padding: 8px 8px 0 8px;
+    background-color: var(--white);
+    cursor: pointer;
 }
