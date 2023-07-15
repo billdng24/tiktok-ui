@@ -27,6 +27,21 @@ const MENU_ITEMS = [
     {
         icon: <FontAwesomeIcon icon={faLanguage} />,
         title: 'Tiếng Việt',
+        children: {
+            title: 'Language',
+            data: [
+                {   
+                    type: 'language',
+                    code: 'en',
+                    title: 'English'
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt'
+                },
+            ]
+        }
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -52,10 +67,20 @@ function Header() {
         }, 0);
     });
 
+    // Handle logic
+    const handleMenuChange = (MenuItem) => {
+        switch(MenuItem.type){
+            case 'language':
+                // Handle change item
+                break;
+            default:
+        }
+    }
+
     return (
         <header className={cx('wrapper')}>
             <div className={cx('innner')}>
-                <img src={images.logo} alt="Tiktok" />
+                <img src={images.logo} alt="Tiktok" className={cx('logo')} />
                 <Tippy
                     interactive
                     visible={searchResult.length > 0}
@@ -88,7 +113,7 @@ function Header() {
                         Tải lên
                     </Button>
                     <Button primary>Đăng nhập</Button>
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
                         </button>
