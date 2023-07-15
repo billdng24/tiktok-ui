@@ -23,17 +23,18 @@
     padding-right: 182px;
 }
 
-.search, .search-result{
+.search,
+.search-result {
     width: 500px;
 }
 
-.search-title{
-    color: rgba(22, 24, 35, .5);
+.search-title {
+    color: rgba(22, 24, 35, 0.5);
     padding: 5px 12px;
     font-size: 1.4rem;
 }
 
-.search{
+.search {
     display: flex;
     position: relative;
     height: var(--search-height);
@@ -52,41 +53,41 @@
         caret-color: var(--primary);
     }
 
-    input:not(:placeholder-shown) ~ .search-btn{
+    input:not(:placeholder-shown) ~ .search-btn {
         color: #4c4e57;
     }
 
-    &:hover{
+    &:hover {
         border-color: var(--search-color);
         cursor: pointer;
     }
 
-    &:hover .search-icon{
+    &:hover .search-icon {
         color: var(--black);
     }
 
-    &:hover .search-btn{
+    &:hover .search-btn {
         background-color: rgba(22, 24, 35, 0.03);
         cursor: pointer;
     }
 
-    &:focus-within{
-        border-color: rgba(22, 24, 35, .2);
+    &:focus-within {
+        border-color: rgba(22, 24, 35, 0.2);
     }
 
-    &::after{
-        content: "";
+    &::after {
+        content: '';
         position: absolute;
         top: 9px;
         right: var(--search-button-width);
         height: calc(var(--search-height) - 18px);
         width: 1px;
-        background-color: rgba(22, 24, 35, .12);
+        background-color: rgba(22, 24, 35, 0.12);
     }
 }
 
 .clear,
-.loading{
+.loading {
     position: absolute;
     right: calc(var(--search-button-width) + 16px);
     top: 50%;
@@ -94,11 +95,7 @@
     color: #a7a7ab;
 }
 
-.search-icon{
-    
-}
-
-.search-btn{
+.search-btn {
     width: var(--search-button-width);
     height: 100%;
     border-top-right-radius: var(--search-border-radius);
@@ -106,9 +103,21 @@
     color: var(--search-color);
     font-size: 1.8rem;
 
-    &:active{
+    &:active {
         background-color: rgba(22, 24, 35, 0.06);
     }
+}
+
+//Actions
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.action-btn{
+    background-color: transparent;
+    padding: 4px 10px;
+    cursor: pointer;
 }
 
 .more-btn {
@@ -116,5 +125,14 @@
     margin-left: 20px;
     padding: 8px 8px 0 8px;
     background-color: var(--white);
+    cursor: pointer;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 14px;
     cursor: pointer;
 }
