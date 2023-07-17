@@ -70,6 +70,19 @@
     color: #a7a7ab;
 }
 
+.loading {
+    animation: spinner .5s linear infinite;
+}
+
+@keyframes spinner {
+    from {
+        transform: translateY(-50%) rotate(0deg);
+    }
+    to {
+        transform: translateY(-50%) rotate(360deg);
+    }
+}
+
 .search-btn {
     width: var(--search-button-width);
     height: 100%;
