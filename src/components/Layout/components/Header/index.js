@@ -14,7 +14,6 @@ import {
     faSpinner,
     faUser,
     faStore,
-    faArrowRightFromBracket,
     faRightToBracket,
 } from '@fortawesome/free-solid-svg-icons';
 import { faBookmark } from '@fortawesome/free-regular-svg-icons';
@@ -26,6 +25,8 @@ import Button from '~/components/Button';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
 import Menu from '~/components/Popper/Menu';
+import { Coin, Mail, Message } from '~/components/Icons';
+import Image from '~/components/Image';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 
@@ -97,7 +98,7 @@ function Header() {
             title: 'Yêu thích',
         },
         {
-            icon: <img src={images.coin} alt='Coin Tiktok' />,
+            icon: <Coin />,
             title: 'Nhận xu',
             to: './coin'
         },
@@ -157,14 +158,17 @@ function Header() {
                             <Button text leftIcon={<FontAwesomeIcon icon={faPlus} />}>
                                 Tải lên
                             </Button>
-                            <Tippy trigger='click' content='Tin nhắn' placement='bottom'>
+                            <Tippy content='Tin nhắn' placement='bottom'>
                                 <button className={cx('action-btn')}>
-                                    <img src={images.message} alt="message" />
+                                    <span><Message /></span>
+                                </button>
+                            </Tippy >
+                            <Tippy content='Hộp thư' placement='bottom'>
+                                <button className={cx('action-btn')}>
+                                    <Mail />
+                                    <span className={cx('badge')}>3</span>
                                 </button>
                             </Tippy>
-                            <button className={cx('action-btn')}>
-                                <img src={images.mail} alt="mail" />
-                            </button>
                         </>
                     ) : (
                         <>
@@ -177,10 +181,11 @@ function Header() {
 
                     <Menu items={currentUser ? UserMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
                                 src="https://p16-sign-useast2a.tiktokcdn.com/tos-useast2a-avt-0068-giso/ff319cefac2dce31ea2abbcf1c1f33ae~c5_720x720.jpeg?x-expires=1689555600&x-signature=Gy%2BM%2BCIKwmsUXMpEBZEpCAnKwjc%3D"
                                 alt="avatar"
+                                fallback='https://fullstack.edu.vn/static/media/f8-icon.18cd71cfcfa33566a22b.png'
                             />
                         ) : (
                             <button className={cx('more-btn')}>

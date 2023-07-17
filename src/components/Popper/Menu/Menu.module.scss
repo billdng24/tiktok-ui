@@ -1,6 +1,6 @@
 // Menu wrapper
 .menu-list {
-    width: 224px;
+    max-width: 308px;
     padding: 4px 0;
 
     .menu-item {
@@ -21,7 +21,6 @@
     padding: 10px 4px 10px 12px;
     color: rgba(22, 24, 35, 1);
     line-height: 1.9rem;
-    font-weight: 700;
 
     &.separate {
         border-top: 1px solid rgba(22, 24, 35, .12)
