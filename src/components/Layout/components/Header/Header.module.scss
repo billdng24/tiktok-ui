@@ -19,8 +19,14 @@
     width: var(--default-layout-width);
 }
 
+// Logo
+
 .logo {
     padding-right: 182px;
+}
+
+.logo-link {
+    display: flex;
 }
 
 //Actions
@@ -29,7 +35,7 @@
     align-items: center;
 }
 
-.action-btn{
+.action-btn {
     position: relative;
     display: flex;
     background-color: transparent;
@@ -37,7 +43,7 @@
     cursor: pointer;
 }
 
-.badge{
+.badge {
     position: absolute;
     display: flex;
     justify-content: center;

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import HeadlessTippy from '@tippyjs/react/headless';
 
-import * as searchService from '~/apiService/searchService'
+import * as searchService from '~/apiService/searchService';
 import AccountItem from '~/components/AccountItem';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import { useDebounce } from '~/hooks';
@@ -27,22 +27,28 @@ function Search() {
             setSearchResult([]);
             return;
         }
-        
+
         const fetchApi = async () => {
             setLoading(true);
 
             const result = await searchService.search(debounced);
-            
-            setSearchResult(result)
+
+            setSearchResult(result);
             setLoading(false);
-        }
+        };
 
         fetchApi();
-
     }, [debounced]);
 
     const handleHideResult = () => {
         setShowResult(false);
+    };
+
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        if(!searchValue.startsWith(' ')){  
+            setSearchValue(searchValue);
+        }
     };
 
     return (
@@ -67,7 +73,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Tìm kiếm"
                     spellCheck="false"
-                    onChange={(e) => setSearchValue(e.target.value)}
+                    onChange={handleChange}
                     onFocus={() => setShowResult(true)}
                 />
                 {!!searchValue && !loading && (
@@ -85,7 +91,7 @@ function Search() {
 
                 {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
 
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={e => e.preventDefault()}>
                     <FontAwesomeIcon icon={faMagnifyingGlass} className={cx('search-icon')} />
                 </button>
             </div>
